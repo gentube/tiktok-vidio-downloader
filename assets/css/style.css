@@ -14,7 +14,6 @@ header {
   padding: 1rem;
 }
 .container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -62,7 +61,6 @@ main {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 2rem;
   max-width: 24rem;
-  width: 100%;
 }
 .card-header {
   display: flex;
@@ -134,4 +132,16 @@ footer {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
 }
