@@ -8,7 +8,7 @@ async function downloadVideo() {
       videoId = getTikTokVideoId(videoId);
     }
     const response = await fetch(
-      `https://tiktok-download-api-production.up.railway.app/download?id=${videoId}`
+      `https://tiktok-download-api-production.up.railway.app/download?videoId=${videoId}`
     );
     const data = await response.json();
     const videoUrl = data?.video_no_watermark.url;
