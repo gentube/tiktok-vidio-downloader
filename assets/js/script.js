@@ -11,9 +11,9 @@ async function downloadVideo() {
       `https://tiktok-download-api-production.up.railway.app/download?videoId=${videoId}`
     );
     const data = await response.json();
-    const videoUrl = data?.video_no_watermark.url;
-    const userId = data?.user.username;
-    doDownloadVideo(videoUrl, userId);
+    const videoUrl = data?.video_no_watermark?.url;
+    const userId = data?.user?.username;
+    await doDownloadVideo(videoUrl, userId);
   } else {
     alert("Please enter a video ID");
   }
@@ -29,15 +29,13 @@ function getTikTokVideoId(url) {
   return null; // Return null if no match is found
 }
 
-function doDownloadVideo(url, fileName) {
-  // Download the video from the given URL
-  // You can use the URL to create a download link or use a library like FileSaver.js to handle the download
-  // For example:
+async function doDownloadVideo(url, fileName) {
+  // download the video with blob
+  const reponse = await fetch(url);
+  const blob = await reponse.blob();
   const link = document.createElement("a");
-  link.href = url;
+  link.href = URL.createObjectURL(blob);
+  link.target = "_blank";
   link.download = fileName + ".mp4";
   link.click();
-  // Or using FileSaver.js:
-  // saveAs(url, "video.mp4");
-  // Replace the above code with your own implementation
 }
