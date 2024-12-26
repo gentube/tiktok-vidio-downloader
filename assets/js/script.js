@@ -8,15 +8,7 @@ async function downloadVideo() {
       videoId = getTikTokVideoId(videoId);
     }
     const response = await fetch(
-      `https://api.twitterpicker.com/tiktok/mediav2?id=${videoId}`,
-      (headers = {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Accept":
-          "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-      })
+      `https://tiktok-download-api-production.up.railway.app/download?id=${videoId}`
     );
     const data = await response.json();
     const videoUrl = data?.video_no_watermark.url;
