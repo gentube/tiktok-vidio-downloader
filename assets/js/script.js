@@ -16,7 +16,7 @@ async function downloadVideo(e) {
         `https://tiktok-download-api-production.up.railway.app/download?videoId=${videoId}`
       );
       const data = await response.json();
-      if (data.status === 200) {
+      if (response.status === 200) {
         const videoUrl = data?.video_no_watermark?.url;
         const userId = data?.user?.username;
         await doDownloadVideo(videoUrl, userId);
