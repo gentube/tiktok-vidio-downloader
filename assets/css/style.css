@@ -126,6 +126,87 @@ footer {
   padding: 1rem;
   text-align: center;
 }
+
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  position: absolute;
+  left: calc(50% - 10px);
+}
+.button.loading {
+  pointer-events: none;
+}
+.button.loading .spinner {
+  display: block;
+}
+
+.button.loading .button-text,
+.button.loading svg {
+  visibility: hidden;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  margin: 40% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 0.5rem;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  background-color: #fe2c55;
+  color: white;
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+.modal-body {
+  padding: 2px 16px;
+}
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #fe2c55;
+  color: white;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media (min-width: 768px) {
   footer .container {
     display: flex;
@@ -143,5 +224,5 @@ footer {
     font-size: 1.5rem;
     font-weight: bold;
     color: #1f2937;
-}
+  }
 }
