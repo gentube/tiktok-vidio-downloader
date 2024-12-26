@@ -20,7 +20,7 @@ async function downloadVideo(e) {
         const videoUrl = data?.video_no_watermark?.url;
         const userId = data?.user?.username;
         await doDownloadVideo(videoUrl, userId);
-      } else if (data.status === 400) {
+      } else {
         showErrorMessage("Video not found");
       }
     } catch (error) {
