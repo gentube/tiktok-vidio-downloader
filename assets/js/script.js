@@ -13,7 +13,7 @@ async function downloadVideo(e) {
     try {
       e.target.classList.add("loading");
       const response = await fetch(
-        `https://tiktok-download-api.onrender.com?videoId=${videoId}`
+        `https://tiktok-download-api.onrender.com/download?videoId=${videoId}`
       );
       const data = await response.json();
       if (response.status === 200) {
