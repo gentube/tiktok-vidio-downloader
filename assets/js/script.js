@@ -18,10 +18,20 @@ async function downloadVideo(e) {
       const data = await response.json();
       if (response.status === 200) {
         const itemStruct = data?.data?.itemInfo?.itemStruct;
-        const video = itemStruct?.video?.bitrateInfo.filter((item) => item?.GearName.includes("1080"))[0];
+        let video = itemStruct?.video?.bitrateInfo.filter((item) =>
+          item?.GearName.includes("1080")
+        )[0];
+        if (!video)
+          video = itemStruct?.video?.bitrateInfo.filter((item) =>
+            item?.GearName.includes("720")
+          )[0];
+        if (!video)
+          video = itemStruct?.video?.bitrateInfo.filter((item) =>
+            item?.GearName.includes("540")
+          )[0];
         const videoUrl = video?.PlayAddr?.UrlList[2];
         const userId = itemStruct?.author?.uniqueId;
-        const videoTitle = itemStruct?.desc;
+        const videoTitle = itemStruct?.contents[0].desc;
         await doDownloadVideo(videoUrl, `${videoTitle}@${userId}`);
       } else {
         showErrorMessage("Video not found");
@@ -61,6 +71,7 @@ async function doDownloadVideo(url, fileName) {
   // const reponse = await fetch(url);
   // const blob = await reponse.blob();
   const link = document.createElement("a");
+  // link.href = URL.createObjectURL(blob);
   link.href = url;
   link.target = "_blank";
   link.download = fileName + ".mp4";
