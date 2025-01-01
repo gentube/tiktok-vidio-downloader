@@ -15,23 +15,12 @@ async function downloadVideo(e) {
       const response = await fetch(
         `https://tiktok-download-api-euxl.onrender.com/download?url=${videoId}`
       );
-      const data = await response.json();
+      const res = await response.json();
       if (response.status === 200) {
-        const itemStruct = data?.data?.itemInfo?.itemStruct;
-        let video = itemStruct?.video?.bitrateInfo.filter((item) =>
-          item?.GearName.includes("1080")
-        )[0];
-        if (!video)
-          video = itemStruct?.video?.bitrateInfo.filter((item) =>
-            item?.GearName.includes("720")
-          )[0];
-        if (!video)
-          video = itemStruct?.video?.bitrateInfo.filter((item) =>
-            item?.GearName.includes("540")
-          )[0];
-        const videoUrl = video?.PlayAddr?.UrlList[2];
-        const userId = itemStruct?.author?.uniqueId;
-        const videoTitle = itemStruct?.contents[0].desc;
+        const data = res?.data;
+        const videoUrl = data?.video?.play_addr.url_list[0];
+        const userId = data?.author?.unique_id;
+        const videoTitle = data?.desc;
         await doDownloadVideo(videoUrl, `${videoTitle}@${userId}`);
       } else {
         showErrorMessage("Video not found");
@@ -68,11 +57,11 @@ function getTikTokVideoId(url) {
 
 async function doDownloadVideo(url, fileName) {
   // download the video with blob
-  // const reponse = await fetch(url);
-  // const blob = await reponse.blob();
+  const reponse = await fetch(url);
+  const blob = await reponse.blob();
   const link = document.createElement("a");
-  // link.href = URL.createObjectURL(blob);
-  link.href = url;
+  link.href = URL.createObjectURL(blob);
+  // link.href = url;
   link.target = "_blank";
   link.download = fileName + ".mp4";
   link.click();
