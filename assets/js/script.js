@@ -58,10 +58,10 @@ function getTikTokVideoId(url) {
 
 async function doDownloadVideo(url, fileName) {
   // download the video with blob
-  const reponse = await fetch(url);
-  const blob = await reponse.blob();
+  // const reponse = await fetch(url);
+  // const blob = await reponse.blob();
   const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
+  link.href = url;
   link.target = "_blank";
   link.download = fileName + ".mp4";
   link.click();
