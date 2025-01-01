@@ -13,13 +13,16 @@ async function downloadVideo(e) {
     try {
       e.target.classList.add("loading");
       const response = await fetch(
-        `https://tiktok-download-api-production.up.railway.app/download?videoId=${videoId}`
+        `https://douyin.wtf/api/tiktok/web/fetch_one_video?itemId=${videoId}`
       );
       const data = await response.json();
       if (response.status === 200) {
-        const videoUrl = data?.video_no_watermark?.url;
-        const userId = data?.user?.username;
-        await doDownloadVideo(videoUrl, userId);
+        const itemStruct = data?.data?.itemInfo?.itemStruct;
+        const video = itemStruct?.video?.bitrateInfo.filter((item) => item?.GearName.includes("1080"))[0];
+        const videoUrl = video?.PlayAddr?.UrlList[2];
+        const userId = itemStruct?.author?.uniqueId;
+        const videoTitle = itemStruct?.desc;
+        await doDownloadVideo(videoUrl, `${videoTitle}@${userId}`);
       } else {
         showErrorMessage("Video not found");
       }
