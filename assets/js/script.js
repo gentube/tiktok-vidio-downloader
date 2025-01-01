@@ -9,11 +9,11 @@ async function downloadVideo(e) {
   e.preventDefault();
   let videoId = document.querySelector("#video-id").value;
   if (videoId) {
-    if (videoId.startsWith("https://")) videoId = getTikTokVideoId(videoId);
+    // if (videoId.startsWith("https://")) videoId = getTikTokVideoId(videoId);
     try {
       e.target.classList.add("loading");
       const response = await fetch(
-        `https://tiktok-download-api-euxl.onrender.com/download?videoId=${videoId}`
+        `https://tiktok-download-api-euxl.onrender.com/download?url=${videoId}`
       );
       const data = await response.json();
       if (response.status === 200) {
