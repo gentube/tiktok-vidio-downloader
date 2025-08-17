@@ -18,7 +18,7 @@
       name="twitter:description"
       content="Download TikTok videos and save them to your device."
     />
-    <meta name="keywords" content="download,tiktok video" />
+    <meta name="keywords" content="download,TikTok video" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
@@ -35,13 +35,13 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="assets/images/favicon.png" />
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-    <title>TikTok Downloader</title>
+    <title>About - TikTok Downloader</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/script.js"></script>
     <!-- Google tag (gtag.js) -->
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=GT-NCHFV7JC"
+      src="https://www.googletagmanager.com/gtag/js?id=G-PDMK4XW92X"
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -49,7 +49,7 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "GT-NCHFV7JC");
+      gtag("config", "G-PDMK4XW92X");
     </script>
     <!-- Google AdSense -->
     <script
@@ -150,76 +150,61 @@
       </div>
     </header>
     <main>
-      <div class="card">
-        <div class="card-header">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#FE2C55"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M9 18V5l12-2v13"></path>
-            <circle cx="6" cy="18" r="3"></circle>
-            <circle cx="18" cy="16" r="3"></circle>
-          </svg>
-          <h1 class="card-title">TikTok Downloader</h1>
+      <div class="container">
+        <h1 class="page-title">About TikTok Downloader</h1>
+        <div class="section">
+          <h2 class="section-title">Our Mission</h2>
+          <p>
+            TikTok Downloader was created to help users save and archive
+            their favorite content from the TikTok platform. Our mission is to
+            provide a simple, fast, and reliable tool for downloading videos
+            for personal use.
+          </p>
         </div>
-        <input
-          id="video-id"
-          type="text"
-          class="input"
-          placeholder="Paste TikTok Url here"
-        />
-        <button class="button download">
-          <div class="spinner"></div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span class="button-text">Download Video</span>
-        </button>
-        <div class="card-footer">
-          <p>Download your favorite TikTok videos with ease!</p>
-          <p class="small">
-            Please ensure you have the right to download and use the content.
+
+        <div class="section">
+          <h2 class="section-title">How It Works</h2>
+          <p>
+            Our downloader works by extracting the media files from TikTok
+            posts. Simply copy the URL of the post you want to download, paste
+            it into our downloader, and click the download button. Our system
+            will process the request and provide you with the downloadable
+            content.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Features</h2>
+          <ul class="features">
+            <li>Fast and reliable downloads</li>
+            <li>Support for videos</li>
+            <li>No watermarks on downloaded content</li>
+            <li>No registration required</li>
+            <li>Simple and user-friendly interface</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Legal Notice</h2>
+          <p>
+            TikTok Downloader is intended for personal use only. We respect
+            copyright laws and the rights of content creators. Please ensure you
+            have the right to download and use the content. Do not use
+            downloaded content for commercial purposes without proper
+            authorization from the original creator.
+          </p>
+          <p>
+            Our service is not affiliated with, endorsed by, or sponsored by
+            TikTok or its parent company.
           </p>
         </div>
       </div>
     </main>
 
     <footer>
-      <div class="footer-container">
+      <div class="footer-content">
         <p>&copy; 2025 TikTok Downloader. All rights reserved.</p>
-        <p>Disclaimer: This tool is not affiliated with TikTok.</p>
       </div>
     </footer>
   </body>
-
-  <div class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <div class="modal-title">Error</div>
-      </div>
-      <div class="modal-body">
-        <p id="errorText"></p>
-      </div>
-    </div>
-  </div>
 </html>
