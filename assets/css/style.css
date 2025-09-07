@@ -52,6 +52,11 @@ nav {
   gap: 0.75rem;
 }
 
+.logo a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
 .logo-icon {
   position: relative;
   width: 32px;
@@ -400,12 +405,8 @@ main {
   line-height: 1.6;
   color: #fff;
   margin-bottom: 0.5rem;
-}
-.ol li {
   padding-left: 1.5rem;
-  position: relative;
 }
-
 .features {
   list-style-type: none;
   padding: 0;
