@@ -481,7 +481,7 @@ footer {
 
 /* Loading Animation */
 .spinner {
-  display: none;
+  display: block !important;
   width: 20px;
   height: 20px;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -491,16 +491,8 @@ footer {
   position: absolute;
 }
 
-.download.loading {
+.event-none {
   pointer-events: none;
-}
-
-.loading .spinner {
-  display: block !important;
-}
-
-.loading span {
-  visibility: hidden;
 }
 
 @keyframes spin {

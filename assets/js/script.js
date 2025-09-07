@@ -11,7 +11,7 @@ async function downloadVideo(e) {
   if (videoId) {
     // if (videoId.startsWith("https://")) videoId = getTikTokVideoId(videoId);
     try {
-      e.target.classList.add("loading");
+      e.target.innertHTML = `<div class="spinner"></div> downloading`;
       const response = await fetch(
         `https://tiktok-download-api-euxl.onrender.com/download?url=${videoId}`
       );
@@ -29,7 +29,7 @@ async function downloadVideo(e) {
       console.error(error);
       showErrorMessage("An error occurred while downloading the video");
     } finally {
-      e.target.classList.remove("loading");
+      e.target.innertHTML = `<span id="btnText">📥 Download</span>`;
     }
   } else {
     showErrorMessage("Please enter a video ID");
